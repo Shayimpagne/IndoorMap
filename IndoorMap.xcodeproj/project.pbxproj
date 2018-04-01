@@ -12,6 +12,15 @@
 		127F174F206ED968004C23A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127F174D206ED968004C23A8 /* Main.storyboard */; };
 		127F1751206ED968004C23A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127F1750206ED968004C23A8 /* Assets.xcassets */; };
 		127F1754206ED968004C23A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127F1752206ED968004C23A8 /* LaunchScreen.storyboard */; };
+		127F175C206EDBF1004C23A8 /* Exhibit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F175B206EDBF1004C23A8 /* Exhibit.swift */; };
+		127F175E206EDCA0004C23A8 /* MuseumMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F175D206EDCA0004C23A8 /* MuseumMap.swift */; };
+		127F1760206EDD18004C23A8 /* MatrixMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F175F206EDD18004C23A8 /* MatrixMap.swift */; };
+		12AF958E206F8E4E0063DC4B /* MuseumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF958D206F8E4E0063DC4B /* MuseumTableViewController.swift */; };
+		12AF9590206F8F270063DC4B /* MuseumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF958F206F8F270063DC4B /* MuseumViewCell.swift */; };
+		12AF9592206F91400063DC4B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF9591206F91400063DC4B /* MapViewController.swift */; };
+		12AF9594206FAEDF0063DC4B /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF9593206FAEDF0063DC4B /* Array2D.swift */; };
+		12AF9596206FB3610063DC4B /* ExhibitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF9595206FB3610063DC4B /* ExhibitView.swift */; };
+		12EA40842070DEDD00B92D9E /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EA40832070DEDD00B92D9E /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		127F1750206ED968004C23A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		127F1753206ED968004C23A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		127F1755206ED968004C23A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		127F175B206EDBF1004C23A8 /* Exhibit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exhibit.swift; sourceTree = "<group>"; };
+		127F175D206EDCA0004C23A8 /* MuseumMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumMap.swift; sourceTree = "<group>"; };
+		127F175F206EDD18004C23A8 /* MatrixMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMap.swift; sourceTree = "<group>"; };
+		12AF958D206F8E4E0063DC4B /* MuseumTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumTableViewController.swift; sourceTree = "<group>"; };
+		12AF958F206F8F270063DC4B /* MuseumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuseumViewCell.swift; sourceTree = "<group>"; };
+		12AF9591206F91400063DC4B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		12AF9593206FAEDF0063DC4B /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		12AF9595206FB3610063DC4B /* ExhibitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExhibitView.swift; sourceTree = "<group>"; };
+		12EA40832070DEDD00B92D9E /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +73,20 @@
 			isa = PBXGroup;
 			children = (
 				127F1749206ED968004C23A8 /* AppDelegate.swift */,
+				127F175B206EDBF1004C23A8 /* Exhibit.swift */,
 				127F174B206ED968004C23A8 /* ViewController.swift */,
 				127F174D206ED968004C23A8 /* Main.storyboard */,
 				127F1750206ED968004C23A8 /* Assets.xcassets */,
 				127F1752206ED968004C23A8 /* LaunchScreen.storyboard */,
 				127F1755206ED968004C23A8 /* Info.plist */,
+				127F175D206EDCA0004C23A8 /* MuseumMap.swift */,
+				127F175F206EDD18004C23A8 /* MatrixMap.swift */,
+				12AF958D206F8E4E0063DC4B /* MuseumTableViewController.swift */,
+				12AF958F206F8F270063DC4B /* MuseumViewCell.swift */,
+				12AF9591206F91400063DC4B /* MapViewController.swift */,
+				12AF9593206FAEDF0063DC4B /* Array2D.swift */,
+				12AF9595206FB3610063DC4B /* ExhibitView.swift */,
+				12EA40832070DEDD00B92D9E /* UserView.swift */,
 			);
 			path = IndoorMap;
 			sourceTree = "<group>";
@@ -136,8 +163,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EA40842070DEDD00B92D9E /* UserView.swift in Sources */,
+				127F1760206EDD18004C23A8 /* MatrixMap.swift in Sources */,
+				12AF9594206FAEDF0063DC4B /* Array2D.swift in Sources */,
+				127F175E206EDCA0004C23A8 /* MuseumMap.swift in Sources */,
+				127F175C206EDBF1004C23A8 /* Exhibit.swift in Sources */,
+				12AF9596206FB3610063DC4B /* ExhibitView.swift in Sources */,
 				127F174C206ED968004C23A8 /* ViewController.swift in Sources */,
 				127F174A206ED968004C23A8 /* AppDelegate.swift in Sources */,
+				12AF9590206F8F270063DC4B /* MuseumViewCell.swift in Sources */,
+				12AF958E206F8E4E0063DC4B /* MuseumTableViewController.swift in Sources */,
+				12AF9592206F91400063DC4B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +335,7 @@
 				127F175A206ED968004C23A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
