@@ -36,17 +36,20 @@ class MuseumMap: UIView {
         
         for i in 0..<museum.map.columns {
             for j in 0..<museum.map.rows {
-                if ((museum.map[i, j] as! Int) != 0) {
+                if ((museum.map[i, j] as! Int) != 1) && ((museum.map[i, j] as! Int) != 0) {
                     view = ExhibitView.init(frame: CGRect(x: j*50, y: i*50, width: 50, height: 50), exhibit: museum.getExhibit(id: museum.map[i, j] as! Int)!)
                     self.addSubview(view)
-                } else {
-                    //view = UIView.init(frame: CGRect(x: j*50+20, y: i*50+20, width: 5, height: 5))
-                    //view.backgroundColor = UIColor.blue
+                } else if ((museum.map[i, j] as! Int) == 1) {
+                    //floor
+                } else if ((museum.map[i, j] as! Int) == 0) {
+                    view = UIView.init(frame: CGRect(x: j*50, y: i*50, width: 50, height: 50))
+                    view.backgroundColor = UIColor.lightGray
+                    self.addSubview(view)
                 }
             }
         }
         
-        userView = UserView.init(frame: CGRect(x: 5*50, y: 12*50, width: 50, height: 50))
+        userView = UserView.init(frame: CGRect(x: 16*50, y: 12*50, width: 50, height: 50))
         self.addSubview(userView)
         
     }

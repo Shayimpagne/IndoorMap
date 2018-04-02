@@ -13,7 +13,10 @@ class MuseumTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 255/255.0, green: 193/255.0, blue: 182/255.0, alpha: 1)
+        self.title = "Museum"
         tableView.separatorStyle = .none
+        
     }
 
     override func didReceiveMemoryWarning() {

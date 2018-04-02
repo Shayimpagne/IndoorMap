@@ -19,12 +19,20 @@ class Exhibit {
     var id:Int
     var name:String
     var image:String
-    var location:(Side, Int)
+    var location:(Int, Int)
     
-    init(id: Int, name:String, image: String, location: (Side, Int)) {
+    init(id: Int, name:String, image: String) {
         self.id = id
         self.name = name
         self.image = image
+        self.location = (0, 0)
+    }
+    
+    func getLocation() -> (Int, Int) {
+        return self.location
+    }
+    
+    func setLocation(location: (Int, Int)) {
         self.location = location
     }
     

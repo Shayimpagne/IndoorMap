@@ -15,13 +15,21 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        exhibits.append(Exhibit.init(id: 1, name: "Mona lisa", image: "monalisa", location: (Side.left, 3)))
-        exhibits.append(Exhibit.init(id: 2, name: "Gustav Klimt", image: "kiss", location: (Side.left, 5)))
-        exhibits.append(Exhibit.init(id: 3, name: "Mone", image: "mone", location: (Side.bottom, 1)))
-        exhibits.append(Exhibit.init(id: 4, name: "Scream", image: "scream", location: (Side.left, 8)))
-        exhibits.append(Exhibit.init(id: 5, name: "Van Gogh", image: "night", location: (Side.bottom, 4)))
+        self.view.backgroundColor = UIColor.lightGray //UIColor(red: 231/255.0, green: 231/255.0, blue: 244/255.0, alpha: 1)
+        self.title = "Map"
         
-        museumMap = MuseumMap.init(frame: CGRect(x:0, y:0, width: 700, height: 800), exhibits: exhibits)
+        exhibits.append(Exhibit.init(id: 2, name: "Mona lisa", image: "monalisa"))
+        exhibits.append(Exhibit.init(id: 3, name: "Gustav Klimt", image: "kiss"))
+        exhibits.append(Exhibit.init(id: 4, name: "Mone", image: "mone"))
+        exhibits.append(Exhibit.init(id: 5, name: "Scream", image: "scream"))
+        exhibits.append(Exhibit.init(id: 6, name: "Van Gogh", image: "night"))
+        exhibits.append(Exhibit.init(id: 7, name: "Picasso Guernica", image: "guernica"))
+        exhibits.append(Exhibit.init(id: 8, name: "Van Gogh Night Cafe", image: "night_cafe"))
+        exhibits.append(Exhibit.init(id: 9, name: "Salvador Dali Time", image: "dali_time"))
+        exhibits.append(Exhibit.init(id: 10, name: "Rembrant Night", image: "rembrant_night"))
+        exhibits.append(Exhibit.init(id: 11, name: "Mikelangelo", image: "mikelangelo"))
+        
+        museumMap = MuseumMap.init(frame: CGRect(x:0, y:0, width: 1100, height: 800), exhibits: exhibits) //fixed size of real indoor (in cm)
         museumMap.backgroundColor = UIColor(red: 231/255.0, green: 231/255.0, blue: 244/255.0, alpha: 1)
         scroll.contentSize = museumMap.frame.size
         scroll.delegate = self

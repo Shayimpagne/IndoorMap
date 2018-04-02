@@ -77,7 +77,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EUn-4O-Bi0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Wm-hu-riI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EUn-4O-Bi0" secondAttribute="bottom" id="5A5-l0-tJb"/>
@@ -111,10 +110,8 @@
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlD-rL-kcY">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                        <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="GlD-rL-kcY" firstAttribute="top" secondItem="Pju-vf-pVj" secondAttribute="top" id="JoJ-WP-f3N"/>
                                     <constraint firstAttribute="bottom" secondItem="GlD-rL-kcY" secondAttribute="bottom" id="UjR-04-BGp"/>
@@ -123,7 +120,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Pju-vf-pVj" firstAttribute="top" secondItem="r7w-gX-tC2" secondAttribute="bottom" id="PPQ-Vc-mqR"/>
                             <constraint firstItem="Pju-vf-pVj" firstAttribute="leading" secondItem="Btt-WO-8A3" secondAttribute="leading" id="eFw-LT-2Bl"/>
