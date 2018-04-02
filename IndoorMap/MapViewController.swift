@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scroll:UIScrollView!
     var museumMap:MuseumMap!
     var exhibits:[Exhibit] = []
@@ -24,17 +24,27 @@ class MapViewController: UIViewController {
         museumMap = MuseumMap.init(frame: CGRect(x:0, y:0, width: 700, height: 800), exhibits: exhibits)
         museumMap.backgroundColor = UIColor(red: 231/255.0, green: 231/255.0, blue: 244/255.0, alpha: 1)
         scroll.contentSize = museumMap.frame.size
+        scroll.delegate = self
+        scroll.minimumZoomScale = 0.5
+        scroll.maximumZoomScale = 5.0
+        
         scroll.addSubview(museumMap)
         
         museumMap.getMap().printMap()
         
-        // Do any additional setup after loading the view.
     }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.museumMap
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     
 
     /*

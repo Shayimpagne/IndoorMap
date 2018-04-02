@@ -13,6 +13,7 @@ class MuseumMap: UIView {
     var museum:MatrixMap!
     var color:UIColor!
     var view:UIView!
+    var userView:UIView!
     
     
     init(frame: CGRect, exhibits: [Exhibit]) {
@@ -45,8 +46,8 @@ class MuseumMap: UIView {
             }
         }
         
-        view = UserView.init(frame: CGRect(x: 5*50, y: 12*50, width: 50, height: 50))
-        self.addSubview(view)
+        userView = UserView.init(frame: CGRect(x: 5*50, y: 12*50, width: 50, height: 50))
+        self.addSubview(userView)
         
     }
 }

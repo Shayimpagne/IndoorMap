@@ -73,20 +73,20 @@
 			isa = PBXGroup;
 			children = (
 				127F1749206ED968004C23A8 /* AppDelegate.swift */,
-				127F175B206EDBF1004C23A8 /* Exhibit.swift */,
 				127F174B206ED968004C23A8 /* ViewController.swift */,
 				127F174D206ED968004C23A8 /* Main.storyboard */,
 				127F1750206ED968004C23A8 /* Assets.xcassets */,
 				127F1752206ED968004C23A8 /* LaunchScreen.storyboard */,
 				127F1755206ED968004C23A8 /* Info.plist */,
-				127F175D206EDCA0004C23A8 /* MuseumMap.swift */,
-				127F175F206EDD18004C23A8 /* MatrixMap.swift */,
 				12AF958D206F8E4E0063DC4B /* MuseumTableViewController.swift */,
 				12AF958F206F8F270063DC4B /* MuseumViewCell.swift */,
+				127F175F206EDD18004C23A8 /* MatrixMap.swift */,
+				127F175D206EDCA0004C23A8 /* MuseumMap.swift */,
 				12AF9591206F91400063DC4B /* MapViewController.swift */,
 				12AF9593206FAEDF0063DC4B /* Array2D.swift */,
 				12AF9595206FB3610063DC4B /* ExhibitView.swift */,
 				12EA40832070DEDD00B92D9E /* UserView.swift */,
+				127F175B206EDBF1004C23A8 /* Exhibit.swift */,
 			);
 			path = IndoorMap;
 			sourceTree = "<group>";
@@ -123,6 +123,8 @@
 				TargetAttributes = {
 					127F1745206ED967004C23A8 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M644N4ZC66;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -239,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -283,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -296,11 +298,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M644N4ZC66;
 				INFOPLIST_FILE = IndoorMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shayimpagne.IndoorMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -308,11 +313,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M644N4ZC66;
 				INFOPLIST_FILE = IndoorMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shayimpagne.IndoorMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

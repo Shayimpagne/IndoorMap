@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
-class UserView: UIImageView {
+class UserView: UIImageView, UIGestureRecognizerDelegate {
+    var x:Int!
+    var y:Int!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        x = 0
+        y = 0
         drawExhibit()
     }
     
@@ -22,6 +26,11 @@ class UserView: UIImageView {
     }
     
     func drawExhibit() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        tap.delegate = self
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(tap)
+        
         self.layer.borderWidth = 1
         self.layer.masksToBounds = false
         self.layer.borderColor = UIColor.white.cgColor
@@ -29,8 +38,18 @@ class UserView: UIImageView {
         self.clipsToBounds = true
         
         self.image = UIImage(named: "arrow")
-        self.transform = self.transform.rotated(by: CGFloat(M_PI_2 / 2))
+        self.transform = self.transform.rotated(by: CGFloat(Double.pi / 4))
         
         
     }
+    
+    func userLocation(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
+        userLocation(x: self.x + 1, y: self.y + 1)
+    }
+    
 }
