@@ -19,12 +19,15 @@ class Exhibit {
     var id:Int
     var name:String
     var image:String
+    var description:String
     var location:(Int, Int)
     
-    init(id: Int, name:String, image: String) {
+    
+    init(id: Int, name:String, image: String, description: String) {
         self.id = id
         self.name = name
         self.image = image
+        self.description = description
         self.location = (0, 0)
     }
     

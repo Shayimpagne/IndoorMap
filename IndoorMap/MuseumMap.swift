@@ -13,8 +13,9 @@ class MuseumMap: UIView {
     var museum:MatrixMap!
     var color:UIColor!
     var view:UIView!
+    var exhibitView:ExhibitView!
+    var exhibitArray:[ExhibitView] = []
     var userView:UIView!
-    
     
     init(frame: CGRect, exhibits: [Exhibit]) {
         super.init(frame: frame)
@@ -36,10 +37,7 @@ class MuseumMap: UIView {
         
         for i in 0..<museum.map.columns {
             for j in 0..<museum.map.rows {
-                if ((museum.map[i, j] as! Int) != 1) && ((museum.map[i, j] as! Int) != 0) {
-                    view = ExhibitView.init(frame: CGRect(x: j*50, y: i*50, width: 50, height: 50), exhibit: museum.getExhibit(id: museum.map[i, j] as! Int)!)
-                    self.addSubview(view)
-                } else if ((museum.map[i, j] as! Int) == 1) {
+                if ((museum.map[i, j] as! Int) == 1) {
                     //floor
                 } else if ((museum.map[i, j] as! Int) == 0) {
                     view = UIView.init(frame: CGRect(x: j*50, y: i*50, width: 50, height: 50))
@@ -49,8 +47,28 @@ class MuseumMap: UIView {
             }
         }
         
+        for i in 0..<museum.map.columns {
+            for j in 0..<museum.map.rows {
+                if ((museum.map[i, j] as! Int) != 1) && ((museum.map[i, j] as! Int) != 0) {
+                    exhibitView = ExhibitView.init(frame: CGRect(x: j*50, y: i*50, width: 50, height: 50), exhibit: museum.getExhibit(id: museum.map[i, j] as! Int)!)
+                    self.exhibitArray.append(exhibitView)
+                    self.addSubview(exhibitArray.last!)
+                }
+            }
+        }
+        
         userView = UserView.init(frame: CGRect(x: 16*50, y: 12*50, width: 50, height: 50))
         self.addSubview(userView)
         
+    }
+    
+    func getExhibitViewByID(id: Int) -> ExhibitView? {
+        for ex in exhibitArray {
+            if ex.exhibit.id == id {
+                return ex
+            }
+        }
+        
+        return nil
     }
 }

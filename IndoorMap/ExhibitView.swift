@@ -16,7 +16,13 @@ class ExhibitView: UIImageView, UIGestureRecognizerDelegate{
         super.init(frame: frame)
         
         self.exhibit = exhibit
+        self.tag = exhibit.id
+        
         drawExhibit()
+    }
+    
+    init() {
+        super.init(frame: CGRect(x: 0, y:0, width:0, height: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,12 +43,27 @@ class ExhibitView: UIImageView, UIGestureRecognizerDelegate{
         
         self.image = UIImage(named: self.exhibit.image)
         
-        
+    }
+    
+    func resizeExhibit() {
+        self.transform = CGAffineTransform(scaleX: 2, y: 2)
+    }
+    
+    func resetExhibit() {
+        self.transform = CGAffineTransform.identity
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
-        print(exhibit.name)
+        //print(exhibit.name)
+        
+        UIView.animate(withDuration: 0.5, animations: ({
+            if self.frame.size.width > 60 {
+                self.resetExhibit()
+            } else {
+                NotificationCenter.default.post(name: Notification.Name("description"), object: nil, userInfo: ["id" : self.exhibit.id])
+                self.resizeExhibit()
+            }
+        }))
     }
-    
-    
+
 }
