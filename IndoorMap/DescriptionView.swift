@@ -33,7 +33,8 @@ class DescriptionView: UIView {
         self.clipsToBounds = true
         
         text = UITextView()
-        text.isUserInteractionEnabled = false
+        //text.isUserInteractionEnabled = false
+        text.isScrollEnabled = true
         text.textColor = UIColor.white
         text.backgroundColor = UIColor(red: 205/255.0, green: 205/255.0, blue: 227/255.0, alpha: 1)
         text.text = exhibit.description
@@ -65,6 +66,7 @@ class DescriptionView: UIView {
     
     func setExhibit(exhibit: Exhibit) {
         self.exhibit = exhibit
+        self.text.text = exhibit.description
     }
     
     @objc func locationPressed(){
