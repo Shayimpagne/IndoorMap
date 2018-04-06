@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		125E2D2D2072647D0020ED82 /* map.txt in Resources */ = {isa = PBXBuildFile; fileRef = 125E2D2C2072647D0020ED82 /* map.txt */; };
 		126C329420738E1900536FD0 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126C329320738E1900536FD0 /* DescriptionView.swift */; };
+		127826D52077C6EA00CA77F7 /* Trilateration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127826D42077C6EA00CA77F7 /* Trilateration.swift */; };
 		127F174A206ED968004C23A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F1749206ED968004C23A8 /* AppDelegate.swift */; };
 		127F174C206ED968004C23A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F174B206ED968004C23A8 /* ViewController.swift */; };
 		127F174F206ED968004C23A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127F174D206ED968004C23A8 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		125E2D2C2072647D0020ED82 /* map.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.txt; sourceTree = "<group>"; };
 		126C329320738E1900536FD0 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		127826D42077C6EA00CA77F7 /* Trilateration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trilateration.swift; sourceTree = "<group>"; };
 		127F1746206ED968004C23A8 /* IndoorMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoorMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127F1749206ED968004C23A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		127F174B206ED968004C23A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				127F175B206EDBF1004C23A8 /* Exhibit.swift */,
 				126C329320738E1900536FD0 /* DescriptionView.swift */,
 				12AF9593206FAEDF0063DC4B /* Array2D.swift */,
+				127826D42077C6EA00CA77F7 /* Trilateration.swift */,
 				125E2D2C2072647D0020ED82 /* map.txt */,
 			);
 			path = IndoorMap;
@@ -180,6 +183,7 @@
 				127F175C206EDBF1004C23A8 /* Exhibit.swift in Sources */,
 				12AF9596206FB3610063DC4B /* ExhibitView.swift in Sources */,
 				127F174C206ED968004C23A8 /* ViewController.swift in Sources */,
+				127826D52077C6EA00CA77F7 /* Trilateration.swift in Sources */,
 				127F174A206ED968004C23A8 /* AppDelegate.swift in Sources */,
 				12AF9590206F8F270063DC4B /* MuseumViewCell.swift in Sources */,
 				12AF958E206F8E4E0063DC4B /* MuseumTableViewController.swift in Sources */,
