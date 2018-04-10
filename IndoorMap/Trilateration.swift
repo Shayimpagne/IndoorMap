@@ -23,7 +23,7 @@ class Trilateration {
         self.dist3 = dist3
     }
     
-    func trilateration() -> (Double, Double) {
+    func trilateration(dist1: Double, dist2: Double, dist3: Double) -> (Double, Double) {
         var P1 = [x1, y1]
         var P2 = [x2, y2]
         var P3 = [x3, y3]

@@ -62,6 +62,17 @@ class MuseumMap: UIView {
         
     }
     
+    func changeUserLocation(x: Double, y: Double) {
+        userView.removeFromSuperview()
+        userView = UserView.init(frame: CGRect(x: Int(x) * 50, y: Int(y) * 50, width: 50, height: 50))
+        self.addSubview(userView)
+    }
+    
+    func drawBeacons(x: Int, y : Int) {
+        let beacon = UserView.init(frame: CGRect(x: x*50, y: y*50, width: 50, height: 50))
+        self.addSubview(beacon)
+    }
+    
     func getExhibitViewByID(id: Int) -> ExhibitView? {
         for ex in exhibitArray {
             if ex.exhibit.id == id {
