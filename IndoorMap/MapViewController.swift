@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import AVFoundation
+
 
 class MapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
     @IBOutlet var scroll:UIScrollView!
@@ -15,9 +17,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     var exhibits:[Exhibit] = []
     var descriptionView:DescriptionView!
     var clearView:UIView!
-    var descriptionLorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nisl ipsum, tempus eu ligula eu, molestie luctus augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec tincidunt, metus gravida vestibulum molestie, ante neque efficitur leo, vel laoreet sapien justo ac nibh. Pellentesque rutrum elit quis diam fringilla accumsan. Nulla fermentum malesuada ligula at mollis. Aliquam ut auctor est, quis lobortis sem. Duis imperdiet eget mauris vel suscipit. Nunc non nulla et erat tempor finibus. Aliquam euismod erat ut imperdiet dictum. Quisque commodo, turpis nec finibus vehicula, odio odio elementum odio, nec pretium nisl massa ut nisi. Donec ultrices efficitur pellentesque. Cras porttitor lacinia massa eget tincidunt. Donec ac tristique dui. Suspendisse pulvinar, purus non pretium ornare, est tortor pulvinar est, a viverra tellus turpis eget nibh. Suspendisse mattis cursus justo, ac placerat lacus lobortis ut. Sed ut mi hendrerit, convallis nibh in, interdum urna. Phasellus purus sapien, aliquet ac elementum vitae, fermentum ut nunc. Aenean dignissim, felis in convallis semper, magna quam elementum dolor, elementum interdum elit est eget nisl. Morbi posuere enim leo, sed sollicitudin tortor vestibulum quis. Aenean bibendum bibendum dolor at luctus. Aliquam ac suscipit arcu. Aliquam felis turpis, efficitur sit amet turpis vitae, suscipit dapibus dolor. Vivamus aliquam sem in erat efficitur, efficitur ultrices arcu maximus. Aliquam scelerisque felis vel metus porttitor aliquet. Nullam odio justo, lacinia sed dui ac, imperdiet posuere arcu. Proin sit amet facilisis enim. Aliquam iaculis urna vel sagittis auctor. Sed suscipit sed magna rutrum varius. Maecenas ut varius ipsum. Vivamus consequat tellus a diam venenatis ornare. Nullam venenatis ipsum nisl. Mauris nec condimentum metus, a rutrum ligula. Aenean efficitur, sem a egestas rutrum, turpis enim ornare elit, vel commodo augue nunc ut augue. Nullam sed porttitor nulla. Nunc consequat elementum leo et luctus. Phasellus congue porttitor aliquet. Nullam pellentesque eros sed erat condimentum, sed dictum felis porta. Ut ac congue tellus, in tincidunt nibh. Aliquam erat volutpat. Nulla ac libero vestibulum arcu lobortis condimentum vel vitae nunc. Curabitur vitae orci congue, semper neque sed, mollis augue. Mauris quis orci id tortor auctor interdum tincidunt sed sapien. Morbi feugiat laoreet nisl malesuada semper. Maecenas eu quam rhoncus, porta augue eu, commodo lectus. Proin rhoncus dictum feugiat. Suspendisse in vulputate ante. Nulla tincidunt, nulla in rhoncus convallis, diam velit gravida tellus, eget posuere lorem mi eget erat. Nunc bibendum vulputate sodales. Aliquam pellentesque aliquet tempus. Sed a purus in orci sodales cursus. Curabitur elit dolor, hendrerit cursus lacus at, laoreet venenatis neque. Curabitur quis nunc ac justo auctor luctus. Nulla bibendum pharetra est. Integer sollicitudin sapien justo, at cursus nisi maximus in. Cras vel odio et odio aliquam ultricies. Quisque quis elementum est, nec molestie augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed tincidunt augue ex, vel cursus sapien lacinia non. Sed felis nisi, egestas sit amet ex vel, semper ornare felis. Donec vel rhoncus est, vel facilisis orci. In tincidunt dui libero, non pretium massa suscipit vitae. Duis a rhoncus nulla."
-
-    let uuid = UUID.init(uuidString: "628670F3-A35B-4D47-B60D-22C5FE10A300")
+    let uuid = UUID.init(uuidString: "52414449-5553-4E45-5457-4F524B53434F")//let uuid = UUID.init(uuidString: "628670F3-A35B-4D47-B60D-22C5FE10A300")
     var locationManager:CLLocationManager!
     var region:CLBeaconRegion!
     var t3:Trilateration!
@@ -25,24 +25,29 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     var dist2:Double = 0
     var dist3:Double = 0
     var position:(Double, Double) = (0, 0)
+    let speechSynth = AVSpeechSynthesizer()
+    var constants:[Constants] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.lightGray //UIColor(red: 231/255.0, green: 231/255.0, blue: 244/255.0, alpha: 1)
+        self.view.backgroundColor = UIColor.lightGray
         self.title = "Map"
         
-        exhibits.append(Exhibit.init(id: 2, name: "Mona lisa", image: "monalisa", description: descriptionLorem))
-        exhibits.append(Exhibit.init(id: 3, name: "Gustav Klimt", image: "kiss", description: descriptionLorem))
-        exhibits.append(Exhibit.init(id: 4, name: "Mone", image: "mone", description: descriptionLorem))
-        exhibits.append(Exhibit.init(id: 5, name: "Scream", image: "scream", description: descriptionLorem))
-        exhibits.append(Exhibit.init(id: 6, name: "Van Gogh", image: "night", description: descriptionLorem))
-        exhibits.append(Exhibit.init(id: 7, name: "Picasso Guernica", image: "guernica", description: descriptionLorem))
-        exhibits.append(Exhibit.init(id: 8, name: "Van Gogh Night Cafe", image: "night_cafe", description: descriptionLorem))
-        //exhibits.append(Exhibit.init(id: 9, name: "Salvador Dali Time", image: "dali_time", description: descriptionLorem))
-        //exhibits.append(Exhibit.init(id: 10, name: "Rembrant Night", image: "rembrant_night", description: descriptionLorem))
-        //exhibits.append(Exhibit.init(id: 11, name: "Mikelangelo", image: "mikelangelo", description: descriptionLorem))
+        exhibits.append(Exhibit.init(id: 2, name: "Mona lisa", image: "monalisa", description: "Портрет Мона Лиза"))
+        exhibits.append(Exhibit.init(id: 3, name: "Gustav Klimt", image: "kiss", description: "Картина Густава Климта \n Поцелуй"))
+        exhibits.append(Exhibit.init(id: 4, name: "Mone", image: "mone", description: "Картина Клода Моне \n Лилии"))
+        exhibits.append(Exhibit.init(id: 5, name: "Scream", image: "scream", description: "Картина Мунка \n Крик"))
+        exhibits.append(Exhibit.init(id: 6, name: "Van Gogh", image: "night", description: "Картина Ван Гога \n Звездная Ночь"))
+        exhibits.append(Exhibit.init(id: 7, name: "Picasso Guernica", image: "guernica", description: "Картина Пикассо \n Герника"))
+        exhibits.append(Exhibit.init(id: 8, name: "Van Gogh Night Cafe", image: "night_cafe", description: "Картина Ван Гога \n Ночное Кафе"))
+        exhibits.append(Exhibit.init(id: 9, name: "Salvador Dali Time", image: "dali_time", description: "Картина Сальвадора Дали \n Время"))
+        exhibits.append(Exhibit.init(id: 10, name: "Rembrant Night", image: "rembrant_night", description: "Картина Рембранта \n Ночь"))
+        exhibits.append(Exhibit.init(id: 11, name: "Mikelangelo", image: "mikelangelo", description: "Картина Микеланджело"))
         
-        museumMap = MuseumMap.init(frame: CGRect(x:0, y:0, width: 700, height: 800), exhibits: exhibits) //fixed size of real indoor (in cm)
+        //first room
+        constants.append(Constants.init(1, (19, 3), (14, 7), "Звёздная ночь \n картина нидерландского художника Винсента Ван Гога, написанная в июне 1889 года, с видом предрассветного неба над вымышленным городком из восточного окна жилища художника в Сен-Реми-де-Прованс \n Звёздная ночь была не первой попыткой Ван Гога изобразить ночное небо. \n В 1888 году в Арле он написал Звёздную ночь над Роной. \n Ван Гог хотел показать звёздную ночь, созданную силой воображения — более удивительную, чем ту, что можно наблюдать в реальности. \n В одном из писем он описывал сюжет будущей картины — звёздная ночь с кипарисами и, возможно, над полем спелой пшеницы. \n Свой замысел ему удалось осуществить в Сен-Реми. \n Винсент писал брату Тео: «Я по-прежнему нуждаюсь в религии. Потому я вышел ночью из дома и начал рисовать звёзды». \n \n Справа от вас «Герни́ка» — картина Пабло Пикассо, написанная в мае 1937 года по заказу правительства Испанской Республики для испанского павильона на Всемирной выставке в Париже. \n Тема картины, исполненной в манере кубизма и в чёрно-белой гамме, — бомбардировка Герники, произошедшая незадолго до этого, а также ужас апрельской испанской революции и Гражданской войны в Испании (1931—1939 годов)."))
+        
+        museumMap = MuseumMap.init(frame: CGRect(x:0, y:0, width: 1100, height: 800), exhibits: exhibits) //fixed size of real indoor (in cm)
         museumMap.backgroundColor = UIColor(red: 231/255.0, green: 231/255.0, blue: 244/255.0, alpha: 1)
         scroll.contentSize = museumMap.frame.size
         scroll.delegate = self
@@ -72,14 +77,62 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         
         clearView.addConstraints([heightView, viewLeading, viewTrailing, viewBottom])
         
-        resetBeacons()
+        //resetBeacons()
         
-        t3 = Trilateration.init(x1: 9.0, y1: 14.0, dist1: 3.0, x2: 1.0, y2: 7.0, dist2: 2.0, x3: 12.0, y3: 2.0, dist3: 2.0)
-        museumMap.drawBeacons(x: 9, y: 14)
-        museumMap.drawBeacons(x: 1, y: 7)
-        museumMap.drawBeacons(x: 12, y: 2)
+//        t3 = Trilateration.init(x1: 9.0, y1: 14.0, dist1: 3.0, x2: 1.0, y2: 7.0, dist2: 2.0, x3: 12.0, y3: 2.0, dist3: 2.0)
+//        museumMap.drawBeacons(x: 9, y: 14)
+//        museumMap.drawBeacons(x: 1, y: 7)
+//        museumMap.drawBeacons(x: 12, y: 2)
         
         NotificationCenter.default.addObserver(self, selector: #selector(drawDescription(_:)), name: Notification.Name("description"), object: nil)
+    }
+    
+    func play(exhibit: Exhibit) {
+        if !speechSynth.isSpeaking {
+            let paragraphs = exhibit.description.components(separatedBy: "\n")
+            
+            for line in paragraphs {
+                let speechUtterance = AVSpeechUtterance(string: line)
+                speechUtterance.rate = 0.5
+                speechUtterance.pitchMultiplier = 1.0
+                speechUtterance.volume = 0.75
+                speechUtterance.postUtteranceDelay = 0.005
+                speechUtterance.voice = AVSpeechSynthesisVoice(language: "ru-RU")
+                
+                speechSynth.speak(speechUtterance)
+            }
+        } else {
+            speechSynth.continueSpeaking()
+        }
+    }
+    
+    func testPlay(proximity: CLProximity) {
+        var prox = ""
+        
+        switch proximity{
+        case .immediate:
+            prox = "immediate"
+        case .near:
+            prox = "near"
+        case .far:
+            prox = "far"
+        default:
+            prox = "unknown"
+        }
+        
+        if !speechSynth.isSpeaking {
+            
+            let speechUtterance = AVSpeechUtterance(string: prox)
+            speechUtterance.rate = 0.5
+            speechUtterance.pitchMultiplier = 1.0
+            speechUtterance.volume = 0.75
+            speechUtterance.postUtteranceDelay = 0.005
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-EN")
+            
+            speechSynth.speak(speechUtterance)
+        } else {
+            speechSynth.continueSpeaking()
+        }
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -154,39 +207,16 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        /*for beacon in beacons {
-         //setText(String(describing: beacon.accuracy))
-         //setText(String(describing: beacon.rssi))
-         //print("\(beacon.major) : \(beacon.minor)")
-         //setText(String(describing: meters(rssi: beacon.rssi)))
-         setText("\(beacon.major) : \(beacon.minor) \(String(describing: meters(rssi: beacon.rssi)))")
-         
-         
-         //setText(String(describing: beacon.rssi))
-         }*/
-        
-        if beacons.count >= 3 {
-            for beacon in beacons {
-                switch beacon.minor {
-                case 10:
-                    dist1 = meters(rssi: beacon.rssi)
-                    print("Mac mini \(dist1)")
-                case 11:
-                    dist2 = meters(rssi: beacon.rssi)
-                    print("Iphone \(dist2)")
-                case 12:
-                    dist3 = meters(rssi: beacon.rssi)
-                    print("Ipod \(dist3)")
-                default:
-                    print("nan")
-                }
-                
-            }
-            
-            position = t3.trilateration(dist1: dist1, dist2: dist2, dist3: dist3)
-            print("x: \(position.0) y: \(position.1)")
-            museumMap.changeUserLocation(x: position.0, y: position.1)
+
+        for beacon in beacons {
+            self.testPlay(proximity: beacon.proximity)
         }
+//        for beacon in beacons {
+//            if beacon.proximity == .near || beacon.proximity == .immediate {
+//                //play(exhibit: self.museumMap.getMap().getExhibit(id: Int(beacon.minor))!)
+//                self.museumMap.changeUserLocation(x: 10, y: 14)
+//            }
+//        }
     }
     
     func meters(rssi: Int) -> Double {
