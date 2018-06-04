@@ -51,6 +51,7 @@ class MuseumMap: UIView {
             for j in 0..<museum.map.rows {
                 if ((museum.map[i, j] as! Int) != 1) && ((museum.map[i, j] as! Int) != 0) {
                     exhibitView = ExhibitView.init(frame: CGRect(x: j*50, y: i*50, width: 50, height: 50), exhibit: museum.getExhibit(id: museum.map[i, j] as! Int)!)
+                    museum.getExhibit(id: museum.map[i, j] as! Int)?.setLocation(location: (j*50, i*50))
                     self.exhibitArray.append(exhibitView)
                     self.addSubview(exhibitArray.last!)
                 }
@@ -66,11 +67,6 @@ class MuseumMap: UIView {
         userView.removeFromSuperview()
         userView = UserView.init(frame: CGRect(x: Int(x) * 50, y: Int(y) * 50, width: 50, height: 50))
         self.addSubview(userView)
-    }
-    
-    func drawBeacons(x: Int, y : Int) {
-        let beacon = UserView.init(frame: CGRect(x: x*50, y: y*50, width: 50, height: 50))
-        self.addSubview(beacon)
     }
     
     func getExhibitViewByID(id: Int) -> ExhibitView? {

@@ -48,6 +48,10 @@ class UserView: UIImageView, UIGestureRecognizerDelegate {
         self.y = y
     }
     
+    func getLocation() -> (Int, Int) {
+        return (self.x, self.y)
+    }
+    
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
         //userLocation(x: self.x + 1, y: self.y + 1)
         

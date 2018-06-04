@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YeT-ni-0Up">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YzE-QA-Rf6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Avenir.ttc">
-            <string>Avenir-Book</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Museum Table View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -27,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-4O-Bi0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="250" id="gBx-a7-F3V" customClass="MuseumViewCell" customModule="IndoorMap" customModuleProvider="target">
@@ -67,7 +61,7 @@
                                         <connections>
                                             <outlet property="museum" destination="EYO-V5-XTM" id="gwX-Xx-Xln"/>
                                             <outlet property="name" destination="kIQ-tc-ytt" id="NAB-gg-yom"/>
-                                            <segue destination="WH4-ys-z0d" kind="show" id="keC-Z4-Htp"/>
+                                            <segue destination="shD-L3-nlZ" kind="show" id="8DW-nt-MAr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -91,12 +85,155 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2009" y="139"/>
         </scene>
-        <!--Map View Controller-->
+        <!--View Controller-->
+        <scene sceneID="n8m-Xq-sCU">
+            <objects>
+                <viewController id="shD-L3-nlZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ElC-fa-vJp"/>
+                        <viewControllerLayoutGuide type="bottom" id="hZX-iK-UYO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OMC-o6-xdA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5lA-Wa-b14">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYg-kY-65e">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
+                                        <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Audio guide">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="WH4-ys-z0d" kind="show" id="8na-0L-dAB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-Mt-N2g">
+                                        <rect key="frame" x="0.0" y="277" width="375" height="277"/>
+                                        <color key="backgroundColor" red="0.80392156859999997" green="0.80392156859999997" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Camera detection">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="D2q-8n-wB6" kind="show" id="SKf-GZ-0Wl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hZX-iK-UYO" firstAttribute="top" secondItem="5lA-Wa-b14" secondAttribute="bottom" id="Smf-23-24Z"/>
+                            <constraint firstAttribute="trailing" secondItem="5lA-Wa-b14" secondAttribute="trailing" id="TvJ-dT-OAa"/>
+                            <constraint firstItem="5lA-Wa-b14" firstAttribute="top" secondItem="ElC-fa-vJp" secondAttribute="bottom" id="s0a-Sh-rdb"/>
+                            <constraint firstItem="5lA-Wa-b14" firstAttribute="leading" secondItem="OMC-o6-xdA" secondAttribute="leading" id="wx4-Jg-fyR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0K-zL-mzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927" y="139"/>
+        </scene>
+        <!--Camera Detection View Controller-->
+        <scene sceneID="29P-hD-6Jg">
+            <objects>
+                <viewController id="D2q-8n-wB6" customClass="CameraDetectionViewController" customModule="IndoorMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5co-Ok-Zvk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mr9-Hy-T7G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ShU-8V-lyR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9iI-O5-JJc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="JqG-Ry-CMo"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Du4-aM-a1A">
+                                <rect key="frame" x="0.0" y="570" width="375" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="q7f-qX-hMP"/>
+                                </constraints>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="D2q-8n-wB6" eventType="touchUpInside" id="nEc-w7-NBn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exhibit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RM-Tn-jzb">
+                                <rect key="frame" x="162" y="414" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80392156859999997" green="0.80392156859999997" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6RM-Tn-jzb" firstAttribute="top" secondItem="9iI-O5-JJc" secondAttribute="bottom" constant="50" id="J96-Sc-P3G"/>
+                            <constraint firstAttribute="trailing" secondItem="9iI-O5-JJc" secondAttribute="trailing" id="ag5-Yc-epX"/>
+                            <constraint firstItem="Mr9-Hy-T7G" firstAttribute="top" secondItem="Du4-aM-a1A" secondAttribute="bottom" id="btD-bF-G2X"/>
+                            <constraint firstItem="6RM-Tn-jzb" firstAttribute="centerX" secondItem="ShU-8V-lyR" secondAttribute="centerX" id="jep-SG-1rz"/>
+                            <constraint firstAttribute="trailing" secondItem="Du4-aM-a1A" secondAttribute="trailing" id="loJ-Yp-pQM"/>
+                            <constraint firstItem="9iI-O5-JJc" firstAttribute="leading" secondItem="ShU-8V-lyR" secondAttribute="leading" id="oZt-sg-LjU"/>
+                            <constraint firstItem="9iI-O5-JJc" firstAttribute="top" secondItem="5co-Ok-Zvk" secondAttribute="bottom" id="oyT-Rp-v7w"/>
+                            <constraint firstItem="Du4-aM-a1A" firstAttribute="leading" secondItem="ShU-8V-lyR" secondAttribute="leading" id="vwJ-Gi-meU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exhibitName" destination="6RM-Tn-jzb" id="tzI-xa-NSI"/>
+                        <outlet property="imageTake" destination="9iI-O5-JJc" id="9sE-RO-WnK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPR-64-McF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3886" y="488"/>
+        </scene>
+        <!--Camera Map View Controller-->
+        <scene sceneID="hSF-jr-hdk">
+            <objects>
+                <viewController storyboardIdentifier="cameraMap" id="GaQ-oN-EfW" customClass="CameraMapViewController" customModule="IndoorMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tWQ-IR-G6k"/>
+                        <viewControllerLayoutGuide type="bottom" id="QsN-Qx-peT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l9u-gb-Adp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHX-EI-roY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zHX-EI-roY" firstAttribute="leading" secondItem="l9u-gb-Adp" secondAttribute="leading" id="6By-sH-0EN"/>
+                            <constraint firstItem="zHX-EI-roY" firstAttribute="top" secondItem="tWQ-IR-G6k" secondAttribute="bottom" id="BzK-Wx-5dH"/>
+                            <constraint firstItem="QsN-Qx-peT" firstAttribute="top" secondItem="zHX-EI-roY" secondAttribute="bottom" id="Qwo-PS-hJD"/>
+                            <constraint firstAttribute="trailing" secondItem="zHX-EI-roY" secondAttribute="trailing" id="Xlo-cC-GY9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapScroll" destination="zHX-EI-roY" id="G9B-jR-9FR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UkG-lO-BQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4742" y="487"/>
+        </scene>
+        <!--Audio Map View Controller-->
         <scene sceneID="SqB-PT-Amc">
             <objects>
-                <viewController id="WH4-ys-z0d" customClass="MapViewController" customModule="IndoorMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WH4-ys-z0d" customClass="AudioMapViewController" customModule="IndoorMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r7w-gX-tC2"/>
                         <viewControllerLayoutGuide type="bottom" id="UOv-Mb-FYl"/>
@@ -106,10 +243,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pju-vf-pVj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlD-rL-kcY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                     </scrollView>
                                 </subviews>
                                 <constraints>
@@ -128,17 +265,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="scroll" destination="GlD-rL-kcY" id="Zbw-dx-8Sd"/>
+                        <outlet property="mapScroll" destination="GlD-rL-kcY" id="hja-rv-2Ip"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRi-Lh-YwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001" y="139"/>
+            <point key="canvasLocation" x="3887" y="-228"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="caa-ng-kim">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YeT-ni-0Up" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Gm9-ko-Tnc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XqG-nF-cjb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -151,7 +289,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyy-Ul-lMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="139"/>
+            <point key="canvasLocation" x="991.20000000000005" y="138.98050974512745"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="DHo-uk-J8z">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YzE-QA-Rf6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ivn-u6-S0n">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="YeT-ni-0Up" kind="relationship" relationship="viewControllers" id="AfP-7W-HVH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fV-Id-OYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

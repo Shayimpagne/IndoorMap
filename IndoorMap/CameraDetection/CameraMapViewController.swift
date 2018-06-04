@@ -8,11 +8,15 @@
 
 import UIKit
 
-class CameraMapViewController: UIViewController {
-
+class CameraMapViewController: MapViewController {
+    @IBOutlet var mapScroll:UIScrollView!
+    var location:(Int, Int)!
     override func viewDidLoad() {
+        super.scroll = mapScroll
         super.viewDidLoad()
-
+        
+        self.mapScroll.setContentOffset(CGPoint(x: location.0, y: location.1), animated: true)
+        
         // Do any additional setup after loading the view.
     }
 

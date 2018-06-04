@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>ok???</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>ok??</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>ok?</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -26,6 +20,19 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>can we use camera?</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>ok?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>ok??</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>ok???</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>bluetooth-central</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -63,5 +63,11 @@ class ExhibitView: UIImageView, UIGestureRecognizerDelegate{
             }
         }))
     }
+    
+    func selectExhibit() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.resizeExhibit()
+        })
+    }
 
 }

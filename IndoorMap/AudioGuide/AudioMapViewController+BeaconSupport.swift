@@ -7,29 +7,76 @@
 //
 
 import UIKit
+import CoreLocation
 
-class AudioMapViewController_BeaconSupport: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension AudioMapViewController {
+    
+    func resetBeacons() {
+        self.locationManager = CLLocationManager()
+        self.locationManager.delegate = self
+        
+        self.locationManager.requestAlwaysAuthorization()
+        region = CLBeaconRegion.init(proximityUUID: uuid!, identifier: "museum_beacons")
+        
+        locationManager.stopMonitoring(for: region)
+        locationManager.startMonitoring(for: region)
+        locationManager.startRangingBeacons(in: region)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch (status) {
+        case CLAuthorizationStatus.notDetermined:
+            print("not authorized")
+            break
+        case CLAuthorizationStatus.authorized:
+            print("authorized")
+            break
+        default:
+            print("default value")
+            break
+        }
     }
-    */
-
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        self.locationManager.startRangingBeacons(in: self.region)
+        print("entered")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        self.locationManager.stopRangingBeacons(in: self.region)
+        print("exit")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        for beacon in beacons {
+            if beacon.proximity == .immediate {
+                if let currentGuide = getGuideByID(id: Int(truncating: beacon.minor), in: guides) {
+                    if lastRoom != currentGuide.id {
+                        lastRoom = currentGuide.id
+                        museumMap.changeUserLocation(x: currentGuide.location.0, y: currentGuide.location.1)
+                        mapScroll.setContentOffset(CGPoint(x: currentGuide.location.0, y: currentGuide.location.1), animated: true)
+                        playGuide(currentGuide: currentGuide)
+                    }
+                }
+            }
+        }
+    }
+    
+    func meters(rssi: Int) -> Double {
+        let txPower:Double = -59
+        
+        if (rssi == 0) {
+            return -1.0
+        }
+        
+        let ratio = (Double(rssi) * 1.0) / txPower
+        
+        if (ratio < 1.0) {
+            return pow(ratio, 10)
+        } else {
+            let distance = (0.89976) * pow(ratio, 7.7095) + 0.111
+            return distance
+        }
+        
+    }
 }
