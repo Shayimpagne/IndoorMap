@@ -54,8 +54,6 @@ class ExhibitView: UIImageView, UIGestureRecognizerDelegate{
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
-        //print(exhibit.name)
-        
         UIView.animate(withDuration: 0.5, animations: ({
             if self.frame.size.width > 60 {
                 self.resetExhibit()

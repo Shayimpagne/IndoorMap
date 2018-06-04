@@ -17,11 +17,7 @@ class MatrixMap {
         //map of 14x16 (50cm x 50cm) room 7mx8m
         self.map = Array2D.init(columns: 16, rows: 14, initialValue: 1) //default array
         self.exhibits = exhibits
-        
         self.map = readMapFromFile()
-        
-        //initMap()
-        
     }
     
     func readMapFromFile() -> Array2D<Any> {
@@ -59,26 +55,6 @@ class MatrixMap {
         
         return nil
     }
-    
-    /*func initMap() {
-        for exhibit in exhibits {
-            switch exhibit.location.0 {
-            case Side.left:
-                map[exhibit.location.1, 0] = exhibit.id
-                continue
-            case Side.right:
-                map[exhibit.location.1, map.rows - 1] = exhibit.id
-                continue
-            case Side.top:
-                map[0, exhibit.location.1] = exhibit.id
-                continue
-            case Side.bottom:
-                map[map.columns - 1, exhibit.location.1] = exhibit.id
-                continue
-            }
-            
-        }
-    }*/
     
     func printMap() {
         for i in 0..<map.columns {

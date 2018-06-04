@@ -13,9 +13,11 @@ class MuseumTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         self.view.backgroundColor = UIColor(red: 205/255.0, green: 205/255.0, blue: 227/255.0, alpha: 1)
         self.title = "Museum"
         tableView.separatorStyle = .none
+        
         
     }
 
@@ -33,7 +35,8 @@ class MuseumTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MuseumViewCell
         cell.museum.image = UIImage(named: "monalisa")
         cell.name.text = "Museum"
-
+        cell.selectionStyle = .none
+        
         return cell
     }
 

@@ -16,12 +16,11 @@ enum Side {
 }
 
 class Exhibit {
-    var id:Int
-    var name:String
-    var image:String
-    var description:String
-    var location:(Int, Int)
-    
+    var id:Int!
+    var name:String!
+    var image:String!
+    var description:String!
+    var location:(Int, Int)!
     
     init(id: Int, name:String, image: String, description: String) {
         self.id = id
