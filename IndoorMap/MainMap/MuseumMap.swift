@@ -58,7 +58,7 @@ class MuseumMap: UIView {
             }
         }
         
-        userView = UserView.init(frame: CGRect(x: 16*50, y: 12*50, width: 50, height: 50))
+        userView = UserView.init(frame: CGRect(x: -50, y: -50, width: 50, height: 50))
         self.addSubview(userView)
         
     }

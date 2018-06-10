@@ -11,31 +11,34 @@ import CoreML
 import Vision
 
 class CameraDetectionViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    @IBOutlet weak var imageTake:UIImageView!
+    @IBOutlet var imageTake:UIImageView!
     @IBOutlet var exhibitName:UILabel!
+    @IBOutlet var showInMap:UIButton!
     var imagePicker:UIImagePickerController!
     var model:VNCoreMLModel!
+    var currentExhibitName:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.exhibitName.text = ""
+        self.showInMap.isHidden = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(takePhoto))
+        imageTake.addGestureRecognizer(tap)
+        
         do {
-            model = try VNCoreMLModel(for: PaintingsClassifier().model)
+            model = try VNCoreMLModel(for: artBelarusClassifier().model)
         } catch {
             print("can't create model")
         }
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func takePhoto(_ sender: UIButton) {
-        imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
+        imageTake.contentMode = .scaleAspectFit
         imageTake.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.showInMap.isHidden = false
         
         let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
             self?.processClassifications(for: request, error: error)
@@ -58,32 +61,35 @@ class CameraDetectionViewController: UIViewController, UINavigationControllerDel
             
             let classifications = results as! [VNClassificationObservation]
             self.exhibitName.text = "\(String(describing: (classifications.first?.identifier)!)) : \(String(describing: (classifications.first?.confidence)!))"
-            
-//            if (classifications.first?.confidence.isLess(than: 50.0))! {
-//                let cameraVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "cameraMap") as! CameraMapViewController
-//                cameraVC.location = (300, 400)
-//                self.present(cameraVC, animated: true)
-//            }
+            self.currentExhibitName = String(describing: (classifications.first?.identifier)!)
             
             print(self.exhibitName.text!)
         }
     }
     
-
+    @objc func takePhoto() {
+        print("hey hey")
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showPainting" && currentExhibitName != nil {
+            let vc = segue.destination as! CameraMapViewController
+            vc.currentExhibitName = self.currentExhibitName
+        }
     }
-    */
+
 
 }

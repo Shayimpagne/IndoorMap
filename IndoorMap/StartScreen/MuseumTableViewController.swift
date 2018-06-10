@@ -15,10 +15,9 @@ class MuseumTableViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         self.view.backgroundColor = UIColor(red: 205/255.0, green: 205/255.0, blue: 227/255.0, alpha: 1)
-        self.title = "Museum"
+        self.title = "Музеи и Выставки"
         tableView.separatorStyle = .none
-        
-        
+        tableView.backgroundColor = UIColor(red: 205/255.0, green: 205/255.0, blue: 227/255.0, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +30,8 @@ class MuseumTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MuseumViewCell
-        cell.museum.image = UIImage(named: "monalisa")
-        cell.name.text = "Museum"
+        cell.museum.image = UIImage(named: "lev_bakst")
+        cell.name.text = "ART Belarus"
         cell.selectionStyle = .none
         
         return cell

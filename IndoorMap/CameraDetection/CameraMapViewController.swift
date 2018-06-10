@@ -11,13 +11,19 @@ import UIKit
 class CameraMapViewController: MapViewController {
     @IBOutlet var mapScroll:UIScrollView!
     var location:(Int, Int)!
+    var currentExhibitName:String!
     override func viewDidLoad() {
         super.scroll = mapScroll
         super.viewDidLoad()
         
-        self.mapScroll.setContentOffset(CGPoint(x: location.0, y: location.1), animated: true)
+        for exhibit in museumMap.exhibitArray {
+            if exhibit.exhibit.name.lowercased() == currentExhibitName.lowercased() {
+                self.scroll.scrollRectToVisible(CGRect(x: exhibit.exhibit.getLocation().0, y: exhibit.exhibit.getLocation().1, width: 1, height: 1), animated: true)
+                exhibit.handleTap()
+                break
+            }
+        }
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

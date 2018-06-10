@@ -19,6 +19,7 @@ class ExhibitView: UIImageView, UIGestureRecognizerDelegate{
         self.tag = exhibit.id
         
         drawExhibit()
+        self.resetExhibit()
     }
     
     init() {
@@ -46,16 +47,23 @@ class ExhibitView: UIImageView, UIGestureRecognizerDelegate{
     }
     
     func resizeExhibit() {
-        self.transform = CGAffineTransform(scaleX: 2, y: 2)
+        self.transform = CGAffineTransform(scaleX: 4, y: 4)
+        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.init(red: 107.0/255.0, green: 186.0/255.0, blue: 165.0/255.0, alpha: 1.0).cgColor
+        self.image = UIImage(named: self.exhibit.image)
     }
     
     func resetExhibit() {
-        self.transform = CGAffineTransform.identity
+        //self.transform = CGAffineTransform.identity
+        self.transform = CGAffineTransform(scaleX: 2, y: 2)
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.white.cgColor
+        self.image = UIImage(named: self.exhibit.image)
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
         UIView.animate(withDuration: 0.5, animations: ({
-            if self.frame.size.width > 60 {
+            if self.frame.size.width > self.frame.width * 2 {
                 self.resetExhibit()
             } else {
                 NotificationCenter.default.post(name: Notification.Name("description"), object: nil, userInfo: ["id" : self.exhibit.id])

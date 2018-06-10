@@ -18,16 +18,18 @@ enum Side {
 class Exhibit {
     var id:Int!
     var name:String!
+    var guideName:String!
     var image:String!
     var description:String!
     var location:(Int, Int)!
     
-    init(id: Int, name:String, image: String, description: String) {
+    init(id: Int, name:String, _ guideName: String, image: String, description: String, _ location: (Int, Int)) {
         self.id = id
         self.name = name
+        self.guideName = guideName
         self.image = image
         self.description = description
-        self.location = (0, 0)
+        self.location = location
     }
     
     func getLocation() -> (Int, Int) {
